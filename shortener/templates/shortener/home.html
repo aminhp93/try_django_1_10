@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Home</title>
+</head>
+<body>
+	<div>
+		<h1>Hi there</h1>
+		<form action="" method="POST" action=".">
+			{% csrf_token %}
+			<input type="text" placeholder="url" name="url">
+			<input type="submit" value="Shorten">
+		</form>
+	</div>
+	
+</body>
+</html>
