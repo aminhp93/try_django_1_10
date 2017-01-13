@@ -2,3 +2,5 @@ venv
 *.pyc
 staticfiles
 .env
+
+try_djang0_1_10/settings/local.py
