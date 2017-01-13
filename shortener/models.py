@@ -1,3 +1,5 @@
+# from django.core.urlresolvers import reverse
+from django_hosts.resolvers import reverse
 from django.conf import settings
 from django.db import models
 
@@ -49,3 +51,12 @@ class KirrURL(models.Model):
 
 	def __str__(self):
 		return str(self.url)
+
+	def get_short_url(self):
+		url_path  = reverse('shortcode', kwargs = {'shortcode': self.shortcode}, host='www', scheme='http')
+		# return "http://www.tirr.com/{shortcode}".format(shortcode=self.shortcode)
+		return url_path
+
+
+
+

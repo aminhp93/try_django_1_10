@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'shortener',
     'django_hosts',
+    'analytics',
 
     
 ]
@@ -59,6 +60,7 @@ ROOT_URLCONF = 'try_django_1_10.urls'
 ROOT_HOSTCONF = 'try_django_1_10.hosts'
 DEFAULT_HOST = 'www'
 DEFAULT_REDIRECT_URL = "http://www.tirr.com:8000"
+PARENT_HOST = "tirr.com:8000"
 
 TEMPLATES = [
     {

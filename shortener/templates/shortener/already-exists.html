@@ -1,3 +1,4 @@
 <h1>Exist</h1>
 <p>{{ object.url }}</p>
-<p>{{ object.shortcode }}</p>
+{% if object.clickevent %}<p>Count: {{ object.clickevent.count }}</p>{% endif %}
+<p><a href="{{ object.get_short_url }}">{{ object.get_short_url }}</a></p>

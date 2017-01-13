@@ -1,9 +1,11 @@
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render, get_object_or_404
 from django.views import View
 
 from .models import KirrURL
 from .forms import SubmitUrlForm
+
+from analytics.models import ClickEvent
 # Create your views here.
 
 
@@ -47,6 +49,8 @@ class HomeView(View):
 				template = "shortener/success.html"
 			else:
 				template = "shortener/already-exists.html"
+
+			return render(request, template, new_context)
 		
 		return render(request, template, context)
 
@@ -76,8 +80,18 @@ def kirr_redirect_view(request, shortcode=None, *args, **kwargs):
 
 class KirrRedirectView(View):
 	def get(self, request, shortcode=None, *args, **kwargs):
+		print("test")
+		print(shortcode)
 		obj = get_object_or_404(KirrURL, shortcode=shortcode)
+
+		# qs = KirrURL.objects.filter(shortcode__iexact=shortcode)
+		# if qs.count != 1 and not qs.exists():
+			# raise Http404
+		# obj = qs.first()
+
+
 		# return HttpResponse("hello again {i}".format(i=shortcode))
+		print(ClickEvent.objects.create_event(obj))
 		return HttpResponseRedirect(obj.url)
 
 	def post(self, request, *args, **kwargs):
