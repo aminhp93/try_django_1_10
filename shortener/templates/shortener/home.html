@@ -1,18 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Home</title>
-</head>
-<body>
-	<div>
-		<h1>Hi there</h1>
-		<form action="" method="POST" action=".">
-			{% csrf_token %}
-			<input type="text" placeholder="url" name="url">
-			<input type="submit" value="Shorten">
-		</form>
-	</div>
-	
-</body>
-</html>
+{% extends 'base.html' %} {% block content %}
+<h1 class="cover-heading">{{ title }}</h1>
+<div class="lead">
+    <div class="col-sm-6 col-sm-offset-3">
+        <form action="" method="POST" action=".">
+            {% csrf_token %}
+            <input type="text" placeholder="url" name="url" class="form-control">
+            <input type="submit" value="Shorten" class="btn btn-primary">
+        </form>
+    </div>
+</div>
+{% endblock %}

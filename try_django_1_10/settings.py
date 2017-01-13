@@ -65,7 +65,7 @@ PARENT_HOST = "tirr.com:8000"
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'try_django_1_10', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

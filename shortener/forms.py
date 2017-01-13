@@ -5,7 +5,13 @@ from .validators import validate_url, validate_dot_com
 # from django.core.validators import URLValidator
 
 class SubmitUrlForm(forms.Form):
-	url = forms.CharField(label = "Submit URL", validators = [validate_url, validate_dot_com])
+	url = forms.CharField(label = "Submit URL", 
+						validators = [validate_url, validate_dot_com], 
+						widget = forms.TextInput(
+							attrs={
+							"placeholder": "Long URL",
+							"class": "form-control"
+							}))
 	# url = forms.CharField(label = "Submit URL")
 
 	# def clean(self):
