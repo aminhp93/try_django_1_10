@@ -25,7 +25,7 @@ SECRET_KEY = 'f3!$()3_1#e1y+_p(dps&wn5m(&0#_(7nxnu1!0w802^z(-6dr'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', 'www.tirr.com', 'tirr.com']
+ALLOWED_HOSTS = ['https://stormy-eyrie-67860.herokuapp.com', 'localhost', 'www.tirr.com', 'tirr.com']
 
 
 # Application definition
